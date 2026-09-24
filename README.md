@@ -1,30 +1,76 @@
-# Mohamed Elesawy — Portfolio
+# Mohamed Elesawy Portfolio
 
-React + Vite portfolio for GitHub Pages.
+A modern React + Vite portfolio site built to showcase my software development work, projects, experience, and contact information.
 
-## Run locally
+## Live demo
+
+https://el3sawy27.github.io/my-portfolio/
+
+## Tech stack
+
+- React
+- Vite
+- JavaScript
+- CSS
+- Lucide React icons
+- GitHub Pages
+
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+Then open the local URL shown in the terminal, usually:
+
+```bash
+http://localhost:5173/
+```
+
+## Production build
 
 ```bash
 npm run build
 ```
 
-## GitHub Pages
+## Deploy to GitHub Pages
 
-Push this project to `El3sawy27/my-portfolio` on the `main` branch.
-This repo will be published at `https://el3sawy27.github.io/my-portfolio/`.
-The included GitHub Actions workflow builds and deploys the site to GitHub Pages.
+This project is already configured for GitHub Pages using a GitHub Actions workflow.
 
-## Before publishing
+### Required setup
 
-1. Confirm the repository name matches the Pages URL.
-2. Verify the live URLs for your projects.
-3. Enable GitHub Pages in the repository settings if it is not already enabled.
+1. Make sure the repository name matches the Pages URL.
+2. Push changes to the `main` branch.
+3. In GitHub, open:
+   - Settings
+   - Pages
+   - Source: GitHub Actions
+4. Allow the workflow to build and deploy the site.
 
-> If you want the root domain instead, use a repository named `el3sawy27.github.io` and publish to `https://el3sawy27.github.io/`.
+### Deployment URL
+
+```bash
+https://el3sawy27.github.io/my-portfolio/
+```
+
+## Project structure
+
+```bash
+src/
+  components/
+  data/
+  App.jsx
+  main.jsx
+  styles.css
+.github/workflows/deploy.yml
+index.html
+package.json
+vite.config.js
+```
+
+## Notes
+
+- The app uses `vite.config.js` with the `base` path set for the repository name.
+- The deployment workflow triggers automatically on pushes to `main`.
+- The site is intended to be a clean, professional portfolio for software engineering roles.

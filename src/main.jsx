@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
+const navItems = ["About", "Skills", "Projects", "Experience", "Contact"];
+
 const projects = [
   {
     number: "01",
@@ -103,6 +105,40 @@ const skillGroups = [
   },
 ];
 
+const profileStats = [
+  { value: "3+", label: "Years learning" },
+  { value: "8+", label: "Projects built" },
+  { value: "100%", label: "Driven to ship" },
+];
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/El3sawy27",
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/el3sawii/",
+    icon: Linkedin,
+  },
+];
+
+function SectionHeader({ label, title, note, alignRight = false }) {
+  return (
+    <div
+      className="section-head"
+      style={alignRight ? { alignItems: "end" } : {}}
+    >
+      <div>
+        <p className="section-label">{label}</p>
+        <h2>{title}</h2>
+      </div>
+      {note ? <p className="section-note">{note}</p> : null}
+    </div>
+  );
+}
+
 function App() {
   const [dark, setDark] = useState(
     () => localStorage.getItem("theme") !== "light",
@@ -126,17 +162,11 @@ function App() {
           </a>
 
           <div className={`nav-links ${menu ? "open" : ""}`}>
-            {["About", "Skills", "Projects", "Experience", "Contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={closeMenu}
-                >
-                  {item}
-                </a>
-              ),
-            )}
+            {navItems.map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} onClick={closeMenu}>
+                {item}
+              </a>
+            ))}
           </div>
 
           <div className="nav-actions">
@@ -176,9 +206,9 @@ function App() {
                 <em>one system at a time.</em>
               </h1>
               <p className="hero-text">
-                I build modern web applications and REST APIs with React,
-                Node.js, Express and MongoDB, with a strong focus on backend
-                development.
+                I design and build modern web applications and reliable REST
+                APIs with React, Node.js, Express and MongoDB, with a strong
+                focus on clean architecture and user-focused product thinking.
               </p>
               <div className="hero-actions">
                 <a className="primary-btn" href="#projects">
@@ -192,6 +222,14 @@ function App() {
                 >
                   <Github size={18} /> GitHub
                 </a>
+              </div>
+              <div className="hero-stats">
+                {profileStats.map(({ value, label }) => (
+                  <div className="stat-box" key={label}>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </div>
+                ))}
               </div>
               <div className="hero-meta">
                 <span>
@@ -268,15 +306,11 @@ app.listen(PORT, () => {
 
         <section id="skills" className="section ruled">
           <div className="container">
-            <div className="section-head">
-              <div>
-                <p className="section-label">02 / TOOLKIT</p>
-                <h2>Technologies I work with.</h2>
-              </div>
-              <p className="section-note">
-                A practical stack centered around JavaScript and the web.
-              </p>
-            </div>
+            <SectionHeader
+              label="02 / TOOLKIT"
+              title="Technologies I work with."
+              note="A practical stack centered around JavaScript and the web."
+            />
             <div className="skills-grid">
               {skillGroups.map(({ title, icon: Icon, items }) => (
                 <article className="skill-card" key={title}>
@@ -416,20 +450,11 @@ app.listen(PORT, () => {
               Get in touch <Mail size={18} />
             </a>
             <div className="social-row">
-              <a
-                href="https://github.com/El3sawy27"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Github size={17} /> GitHub
-              </a>
-              <a
-                href="https://linkedin.com/in/el3sawii/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Linkedin size={17} /> LinkedIn
-              </a>
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer">
+                  <Icon size={17} /> {label}
+                </a>
+              ))}
             </div>
           </div>
         </section>

@@ -1,0 +1,24 @@
+{
+  "name": "mohamed-elesawy-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://el3sawy27.github.io/mohamed-elesawy-portfolio/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "lucide-react": "^0.544.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.2"
+  }
+}

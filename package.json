@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://el3sawy27.github.io/mohamed-elesawy-portfolio/",
+  "homepage": "https://el3sawy27.github.io/my-portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

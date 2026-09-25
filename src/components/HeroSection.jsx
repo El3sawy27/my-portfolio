@@ -3,6 +3,8 @@ import { ArrowUpRight, ChevronDown, Github, MapPin } from "lucide-react";
 import { profileStats } from "../data/portfolioData";
 
 export default function HeroSection() {
+  const profileImage = `${import.meta.env.BASE_URL}assets/Me.jpeg`;
+
   return (
     <section id="home" className="hero section">
       <div className="hero-grid container">
@@ -50,7 +52,24 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="hero-art" aria-hidden="true">
+        <div className="hero-art">
+          <div className="profile-photo-shell">
+            <img
+              src={profileImage}
+              alt="Mohamed Elesawy portrait"
+              onError={(event) => {
+                event.currentTarget.style.display = "none";
+                event.currentTarget.nextSibling.style.display = "grid";
+              }}
+            />
+            <div
+              className="profile-fallback"
+              aria-label="Mohamed Elesawy initials"
+            >
+              ME
+            </div>
+          </div>
+
           <div className="orb orb-a" />
           <div className="orb orb-b" />
           <div className="code-card">
